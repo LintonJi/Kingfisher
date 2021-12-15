@@ -2,6 +2,41 @@
 
 -----
 
+## [7.1.2 - Cold Days](https://github.com/onevcat/Kingfisher/releases/tag/7.1.2) (2021-12-07)
+
+#### Fix
+* Lacking of `diskStoreWriteOptions` from `KFOptionSetter`. Now it supports to be set in a chainable way. [#1862](https://github.com/onevcat/Kingfisher/issues/1862) @ignotusverum
+* A duplicated nested `Radius` type which prevents the framework being used in Playground. [#1872](https://github.com/onevcat/Kingfisher/pull/1872)
+* An issue that sometimes `KFImage` does not load images correctly when a huge amount of images are being loaded due to animation setting. [#1873](https://github.com/onevcat/Kingfisher/pull/1873) @tatsuz0u
+* Remove explicit usage of `@Published` to allow refering `KFImage` even under a deploy target below iOS 13. [#1875](https://github.com/onevcat/Kingfisher/pull/1875)
+* Now the image cache calculats the cost animated images correctly with all frames. [#1881](https:://github.com/onevcat/Kingfisher/pull/1881) @pal-aspringfield
+* Remove CarPlay support when building against macCatalyst, which is not properly conditionally supported. [#1876](https://github.com/onevcat/Kingfisher/pull/1876)
+
+---
+
+## [7.1.1 - Double Ninth](https://github.com/onevcat/Kingfisher/releases/tag/7.1.1) (2021-10-16)
+
+#### Fix
+* In some cases the `KFImage` loading causes a freeze on certain iOS 14 systems. [#1849](https://github.com/onevcat/Kingfisher/issues/1849) Thanks reporting from @JetForMe @benjamincombes @aralatpulat
+* Setting image to an `AnimatedImageView` now correctly replaces its layer contents. [#1836](https://github.com/onevcat/Kingfisher/issues/1836) @phantomato
+
+---
+
+## [7.1.0 - Autumn Patch](https://github.com/onevcat/Kingfisher/releases/tag/7.1.0) (2021-10-12)
+
+#### Add
+* Extension for CarPlay support. Now you can use Kingfisher's extension image setting methods on `CPListItem`. [#1802](https://github.com/onevcat/Kingfisher/pull/1820) from @waynehartman
+
+#### Fix
+* An Xcode issue that not recognizes iOS 15 availability checking for Apple Silicon. [#1822](https://github.com/onevcat/Kingfisher/pull/1822) from @enoktate
+* Add `onFailureImage` modifier back to `KFImage`, which was unexpected removed while upgrading. [#1829](https://github.com/onevcat/Kingfisher/pull/1829) from @skellock
+* Start binder loading when `body` is evaluated. This fixes an unwanted flickering. This also adds a protection for internal loading state.  [#1828](https://github.com/onevcat/Kingfisher/pull/1828) from @JetForMe and @IvanShah
+* Use color description based on `CGFloat` style of a color instead of a hex value to allow extended color space when setting it to a processor. [#1826](https://github.com/onevcat/Kingfisher/pull/1826) from @vonox7
+* An issue that the local file provided images are cached for multiple times when an app is updated. This is due to a changing main bundle location on the disk. Now Kingfisher uses a stable version of disk URL as the default cache key. [#1831](https://github.com/onevcat/Kingfisher/pull/1831) from @iaomw
+* Now `KFImage`'s internal rendered view is wrapped by a `ZStack`. This prevents a lazy container from recognizing different `KFImage`s with a same URL as the same view. [#1840](https://github.com/onevcat/Kingfisher/pull/1840) from @iOSappssolutions
+
+---
+
 ## [7.0.0 - Version 7](https://github.com/onevcat/Kingfisher/releases/tag/7.0.0) (2021-09-21)
 
 #### Add
